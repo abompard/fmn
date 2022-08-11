@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import { useI18n } from "vue-i18n";
 import HelloWorld from "./HelloWorld.vue";
 import LoginButton from "./LoginButton.vue";
 import MainNavLink from "./MainNavLink.vue";
+
+const { t } = useI18n();
 </script>
 
 <template>
@@ -17,10 +20,10 @@ import MainNavLink from "./MainNavLink.vue";
             height="40"
         /></a>
         <ul class="navbar-nav fw-bold align-items-center">
-          <MainNavLink to="/">Home</MainNavLink>
-          <MainNavLink to="/about">About</MainNavLink>
-          <MainNavLink to="/rules">Rules</MainNavLink>
-          <MainNavLink to="/destinations">Destinations</MainNavLink>
+          <MainNavLink to="/">{{ t("home") }}</MainNavLink>
+          <MainNavLink to="/about">{{ t("about") }}</MainNavLink>
+          <MainNavLink to="/rules">{{ t("rules") }}</MainNavLink>
+          <MainNavLink to="/destinations">{{ t("destinations") }}</MainNavLink>
           <LoginButton />
         </ul>
       </div>
@@ -33,3 +36,16 @@ import MainNavLink from "./MainNavLink.vue";
     </div>
   </header>
 </template>
+
+<i18n lang="yaml">
+en-US:
+  home: "Home"
+  about: "About"
+  rules: "Rules"
+  destinations: "Destinations"
+fr-FR:
+  home: "Accueil"
+  about: "À propos"
+  rules: "Règles"
+  destinations: "Destinations"
+</i18n>
